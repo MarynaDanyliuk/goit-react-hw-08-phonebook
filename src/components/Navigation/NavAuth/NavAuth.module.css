@@ -10,9 +10,14 @@
 }
 
 .link {
-  /* font-size: larger; */
+  display: inline-block;
   color: inherit;
   text-decoration: none;
+  cursor: grab;
+}
+
+.link:global(.active) {
+  font-weight: bold;
 }
 
 .decoration_elem {
