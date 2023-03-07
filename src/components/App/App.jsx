@@ -1,51 +1,91 @@
+import { BrowserRouter } from 'react-router-dom';
+import { Provider } from 'react-redux';
 import React from 'react';
-import { useEffect } from 'react';
-import { useSelector } from 'react-redux';
+// import { useEffect } from 'react';
+// import { useSelector } from 'react-redux';
 
-import { ContactsList } from 'components/ContactsList/ContactsList';
-import { Form } from 'components/Form/Form';
-import { Filter } from 'components/Filter/Filter';
+// import { ContactsList } from 'components/ContactsList/ContactsList';
+// import { Form } from 'components/Form/Form';
+// import { Filter } from 'components/Filter/Filter';
+import { Navigation } from 'components/Navigation/Navigation';
+import { Phonebook } from 'components/Phonebook/Phonebook';
 
-import { getFilteredContacts } from '../../redux/contacts/contacts-selectors';
+// import { getFilteredContacts } from '../../redux/contacts/contacts-selectors';
 
-import { useDispatch } from 'react-redux';
+// import { useDispatch } from 'react-redux';
 
-import { fetchAllContacts } from 'redux/contacts/contacts-operations';
+// import { fetchAllContacts } from 'redux/contacts/contacts-operations';
 
-import css from './App.module.css';
+// import css from './App.module.css';
+import store from 'redux/store';
 
 export const App = () => {
-  const filteredContacts = useSelector(getFilteredContacts);
+  // const filteredContacts = useSelector(getFilteredContacts);
 
-  const isContacts = Boolean(filteredContacts.length);
+  // const isContacts = Boolean(filteredContacts.length);
 
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
-  useEffect(() => {
-    dispatch(fetchAllContacts());
-  }, [dispatch]);
+  // useEffect(() => {
+  //   dispatch(fetchAllContacts());
+  // }, [dispatch]);
 
   return (
-    <div
-      style={{
-        height: '100vh',
-        display: 'flex',
-        flexDirection: `column`,
-        marginLeft: 40,
-        fontSize: 20,
-        color: '#010101',
-      }}
-    >
-      <h1 className={css.title}>Phonebook</h1>
-      <Form />
-      <h2 className={css.title}>Contacts</h2>
-      <Filter />
-      {/* <ContactsList /> */}
-      {isContacts && <ContactsList />}
-      {!isContacts && <p>No such contacts in Phonebook</p>}
-    </div>
+    <Provider store={store}>
+      <BrowserRouter>
+        <Navigation />
+        <Phonebook />
+        {/* <div
+          style={{
+            height: '100vh',
+            display: 'flex',
+            flexDirection: `column`,
+            marginLeft: 40,
+            fontSize: 20,
+            color: '#010101',
+          }}
+        >
+          <h1 className={css.title}>Phonebook</h1>
+          <Form />
+          <h2 className={css.title}>Contacts</h2>
+          <Filter />
+          {isContacts && <ContactsList />}
+          {!isContacts && <p>No such contacts in Phonebook</p>}
+        </div> */}
+      </BrowserRouter>
+    </Provider>
   );
 };
+
+// <div
+//   style={{
+//     height: '100vh',
+//     display: 'flex',
+//     flexDirection: `column`,
+//     marginLeft: 40,
+//     fontSize: 20,
+//     color: '#010101',
+//   }}
+// >
+//   <h1 className={css.title}>Phonebook</h1>
+//   <Form />
+//   <h2 className={css.title}>Contacts</h2>
+//   <Filter />
+//   {isContacts && <ContactsList />}
+//   {!isContacts && <p>No such contacts in Phonebook</p>}
+// </div>
+
+//  <Suspense>
+//    <Routes>
+//      <Route path="/" element={<HomePage />} />
+//      <Route path="/movies" element={<MoviesPage />} />
+//      <Route path="/movies/:movieId" element={<MovieDetails />}>
+//        <Route path="cast" element={<MovieCast />} />
+//        <Route path="reviews" element={<MovieReviews />} />
+//      </Route>
+//      <Route path="*" element={<NotFoundPage />} />
+//    </Routes>
+//  </Suspense>;
 
 // ________________________________________________________________
 // import { getFilter } from '../../redux/filter/filter-selectors';
