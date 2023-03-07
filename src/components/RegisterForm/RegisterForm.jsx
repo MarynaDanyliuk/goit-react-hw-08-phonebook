@@ -10,7 +10,7 @@ export const RegisterForm = ({ onSubmit }) => {
     onSubmit,
   });
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} type="text" required name="name">
       <TextField />
       <TextField />
       <TextField />
