@@ -1,6 +1,6 @@
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { Provider } from 'react-redux';
-import React from 'react';
+import React, { Suspense } from 'react';
 // import { useEffect } from 'react';
 // import { useSelector } from 'react-redux';
 
@@ -9,6 +9,7 @@ import React from 'react';
 // import { Filter } from 'components/Filter/Filter';
 import { Navigation } from 'components/Navigation/Navigation';
 import { Phonebook } from 'components/Phonebook/Phonebook';
+import RegisterPage from 'components/pages/RegisterPage/RegisterPage';
 
 // import { getFilteredContacts } from '../../redux/contacts/contacts-selectors';
 
@@ -45,6 +46,14 @@ export const App = () => {
     >
       <BrowserRouter>
         <Navigation />
+        <Suspense>
+          <Routes>
+            <Route path="/" element={<Phonebook />} />
+            <Route path="/register" element={<RegisterPage />} />
+            {/* <Route path="/login" element={<LoginPage />} /> */}
+          </Routes>
+        </Suspense>
+
         <Phonebook />
         {/* <div
           style={{
