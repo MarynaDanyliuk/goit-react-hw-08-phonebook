@@ -1,8 +1,8 @@
-import css from './RegistrationPage/RegistrationPage.module.css';
+import css from './RegisterPage/RegisterPage.module.css';
 
 // import Movies from 'components/Movies/Movies';
 
-const RegistrationPage = () => {
+const RegisterPage = () => {
   return (
     <div className={css.container}>
       <h2 className={css.page_title}>Registration page</h2>
@@ -10,4 +10,4 @@ const RegistrationPage = () => {
     </div>
   );
 };
-export default RegistrationPage;
+export default RegisterPage;
