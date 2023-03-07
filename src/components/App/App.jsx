@@ -31,7 +31,18 @@ export const App = () => {
   // }, [dispatch]);
 
   return (
-    <Provider store={store}>
+    <Provider
+      store={store}
+      style={{
+        height: '100vh',
+        display: 'flex',
+        flexDirection: `column`,
+        marginLeft: 40,
+        marginRight: 40,
+        fontSize: 20,
+        color: '#010101',
+      }}
+    >
       <BrowserRouter>
         <Navigation />
         <Phonebook />

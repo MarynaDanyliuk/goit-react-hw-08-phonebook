@@ -1,10 +1,17 @@
 import { NavLink } from 'react-router-dom';
 
+import css from './NavAuth.module.css';
+
 export const NavAuth = () => {
   return (
-    <div>
-      <NavLink to="/register">Register</NavLink> |
-      <NavLink to="/login">Login</NavLink>
+    <div className={css.navigation}>
+      <NavLink to="/register" className={css.link}>
+        Register
+      </NavLink>
+      <span className={css.decoration_elem}>|</span>
+      <NavLink to="/login" className={css.link}>
+        Login
+      </NavLink>
       {/* <NavLink to="/contacts">Contacts</NavLink> */}
     </div>
   );
