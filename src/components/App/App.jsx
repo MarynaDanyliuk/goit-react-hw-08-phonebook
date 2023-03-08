@@ -10,6 +10,7 @@ import React, { Suspense } from 'react';
 import { Navigation } from 'components/Navigation/Navigation';
 import { Phonebook } from 'components/Phonebook/Phonebook';
 import RegisterPage from 'components/pages/RegisterPage/RegisterPage';
+import LoginPage from 'components/pages/LoginPage/LoginPage';
 
 // import { getFilteredContacts } from '../../redux/contacts/contacts-selectors';
 
@@ -50,12 +51,18 @@ export const App = () => {
           <Routes>
             <Route path="/" element={<Phonebook />} />
             <Route path="/register" element={<RegisterPage />} />
-            {/* <Route path="/login" element={<LoginPage />} /> */}
+            <Route path="/login" element={<LoginPage />} />
           </Routes>
         </Suspense>
+      </BrowserRouter>
+    </Provider>
+  );
+};
 
-        {/* <Phonebook /> */}
-        {/* <div
+//  _____________________________________
+/* <Phonebook /> */
+
+/* <div
           style={{
             height: '100vh',
             display: 'flex',
@@ -71,12 +78,9 @@ export const App = () => {
           <Filter />
           {isContacts && <ContactsList />}
           {!isContacts && <p>No such contacts in Phonebook</p>}
-        </div> */}
-      </BrowserRouter>
-    </Provider>
-  );
-};
+        </div> */
 
+// ______________________
 // <div
 //   style={{
 //     height: '100vh',
