@@ -9,16 +9,21 @@ import initialState from './initialState';
 import fields from './fields';
 
 export const LoginForm = ({ onSubmit }) => {
-  // state, setState,
-  const { handleChange, handleSubmit } = useForm({
+  const { state, handleChange, handleSubmit } = useForm({
     initialState,
     onSubmit,
   });
+
+  const { email, password } = state;
   return (
     <form className={css.form} onSubmit={handleSubmit}>
       {/* <TextField onChange={handleChange} {...fields.name} /> */}
-      <TextField onChange={handleChange} {...fields.email} />
-      <TextField onChange={handleChange} {...fields.password} />
+      <TextField value={email} onChange={handleChange} {...fields.email} />
+      <TextField
+        value={password}
+        onChange={handleChange}
+        {...fields.password}
+      />
       <Button>Login</Button>
     </form>
   );
