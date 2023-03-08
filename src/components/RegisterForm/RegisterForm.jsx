@@ -6,7 +6,8 @@ import initialState from './initialState';
 import fields from './fields';
 
 export const RegisterForm = ({ onSubmit }) => {
-  const { state, setState, handleChange, handleSubmit } = useForm({
+  // state, setState,
+  const { handleChange, handleSubmit } = useForm({
     initialState,
     onSubmit,
   });
