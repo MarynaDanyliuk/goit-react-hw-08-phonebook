@@ -1,7 +1,5 @@
 import css from 'components/pages/RegisterPage/RegisterPage.module.css';
 
-// import Movies from 'components/Movies/Movies';
-
 import { RegisterForm } from 'components/RegisterForm/RegisterForm';
 
 const RegisterPage = () => {

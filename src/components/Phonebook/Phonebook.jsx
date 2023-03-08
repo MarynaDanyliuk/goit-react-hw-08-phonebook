@@ -29,6 +29,7 @@ export const Phonebook = () => {
         display: 'flex',
         flexDirection: `column`,
         marginLeft: 40,
+        marginRight: 40,
         fontSize: 20,
         color: '#010101',
       }}
