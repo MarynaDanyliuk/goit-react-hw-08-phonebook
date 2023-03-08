@@ -33,7 +33,7 @@ export const App = () => {
   // }, [dispatch]);
 
   return (
-    <Provider
+    <div
       store={store}
       style={{
         height: '100vh',
@@ -55,7 +55,7 @@ export const App = () => {
           </Routes>
         </Suspense>
       </BrowserRouter>
-    </Provider>
+    </div>
   );
 };
 
