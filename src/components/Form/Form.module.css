@@ -19,9 +19,18 @@
 
 .form_input {
   width: 200px;
+  padding: 5px;
 }
 
 .button {
   width: 100px;
   margin-top: 10px;
+  padding: 5px 10px;
+  background-color: #add8e6;
+  border: 1px solid lightskyblue;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.button:hover {
+  background-color: #8dd5ee;
 }
