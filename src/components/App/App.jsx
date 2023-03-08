@@ -1,5 +1,5 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import { Provider } from 'react-redux';
+// import { Provider } from 'react-redux';
 import React, { Suspense } from 'react';
 // import { useEffect } from 'react';
 // import { useSelector } from 'react-redux';
