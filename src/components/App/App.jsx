@@ -54,7 +54,7 @@ export const App = () => {
           </Routes>
         </Suspense>
 
-        <Phonebook />
+        {/* <Phonebook /> */}
         {/* <div
           style={{
             height: '100vh',
