@@ -6,18 +6,6 @@ import {
   fetchDeleteContact,
 } from './contacts-operations';
 
-// import {
-//   fetchAllContactsLoading,
-//   fetchAllContactsSuccess,
-//   fetchAllContactsError,
-//   fetchAddContactLoading,
-//   fetchAddContactSuccess,
-//   fetchAddContactError,
-//   fetchDeleteContactLoading,
-//   fetchDeleteContactSuccess,
-//   fetchDeleteContactError,
-// } from './contacts-actions';
-
 const initialState = {
   items: [],
   isLoading: false,

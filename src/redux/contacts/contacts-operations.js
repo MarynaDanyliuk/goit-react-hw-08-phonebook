@@ -29,23 +29,7 @@ export const fetchAddContact = createAsyncThunk(
       return rejectWithValue(response.data);
     }
   }
-  //   {
-  //     condition: ({ name }, { getState }) => {
-  //       const { contacts } = getState();
-  //       const normalizedName = name.toLowerCase();
-  //       const result = contacts.items.find(({ name }) => {
-  //         return name.toLowerCase() === normalizedName;
-  //       });
-  //       if (result) {
-  //         alert(`${name} is alredy in contacts!`);
-  //         // setState({ ...contacts });
-  //         return false;
-  //       }
-  //     },
-  //   }
 );
-
-// { setState }
 
 export const fetchDeleteContact = createAsyncThunk(
   'contacts/delete',
@@ -58,6 +42,21 @@ export const fetchDeleteContact = createAsyncThunk(
     }
   }
 );
+
+//   {
+//     condition: ({ name }, { getState }) => {
+//       const { contacts } = getState();
+//       const normalizedName = name.toLowerCase();
+//       const result = contacts.items.find(({ name }) => {
+//         return name.toLowerCase() === normalizedName;
+//       });
+//       if (result) {
+//         alert(`${name} is alredy in contacts!`);
+//         // setState({ ...contacts });
+//         return false;
+//       }
+//     },
+//   }
 
 // export const fetchDeleteBook = createAsyncThunk(
 //   'books/delete',
