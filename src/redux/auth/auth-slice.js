@@ -5,7 +5,7 @@ import { signup } from './auth-operations';
 const initialState = {
   user: {},
   token: '',
-  isLoaging: false,
+  isLogin: false,
   loading: false,
   error: null,
 };
@@ -15,20 +15,20 @@ const authSlice = createSlice({
   initialState,
   extraReducers: builder => {
     builder
-      .addCase(signup.pending, state => {
-        state.loading = true;
-        state.error = null;
+      .addCase(signup.pending, store => {
+        store.loading = true;
+        store.error = null;
       })
-      .addCase(signup.fulfilled, (state, { payload }) => {
+      .addCase(signup.fulfilled, (store, { payload }) => {
         const { user, token } = payload;
-        state.loading = false;
-        state.user = user;
-        state.token = token;
-        state.isLoaging = true;
+        store.loading = false;
+        store.user = user;
+        store.token = token;
+        store.isLogin = true;
       })
-      .addCase(signup.rejected, (state, { payload }) => {
-        state.loading = false;
-        state.error = payload;
+      .addCase(signup.rejected, (store, { payload }) => {
+        store.loading = false;
+        store.error = payload;
       });
   },
 });
