@@ -17,7 +17,6 @@ export const LoginForm = ({ onSubmit }) => {
   const { email, password } = state;
   return (
     <form className={css.form} onSubmit={handleSubmit}>
-      {/* <TextField onChange={handleChange} {...fields.name} /> */}
       <TextField value={email} onChange={handleChange} {...fields.email} />
       <TextField
         value={password}
