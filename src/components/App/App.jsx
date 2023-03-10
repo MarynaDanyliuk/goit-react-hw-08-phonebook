@@ -1,6 +1,10 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { Provider } from 'react-redux';
+import { PersistGate } from 'redux-persist/integration/react';
 // import { Provider } from 'react-redux';
 import React, { Suspense } from 'react';
+
+import { store, persistor } from 'redux/store';
 // import { useEffect } from 'react';
 // import { useSelector } from 'react-redux';
 
@@ -9,6 +13,7 @@ import React, { Suspense } from 'react';
 // import { Filter } from 'components/Filter/Filter';
 import { Navigation } from 'components/Navigation/Navigation';
 import { Phonebook } from 'components/Phonebook/Phonebook';
+
 import RegisterPage from 'components/pages/RegisterPage/RegisterPage';
 import LoginPage from 'components/pages/LoginPage/LoginPage';
 
@@ -19,7 +24,10 @@ import LoginPage from 'components/pages/LoginPage/LoginPage';
 // import { fetchAllContacts } from 'redux/contacts/contacts-operations';
 
 // import css from './App.module.css';
-import store from 'redux/store';
+
+// import store from 'redux/store';
+
+// import { persistor } from 'redux/store';
 
 export const App = () => {
   // const filteredContacts = useSelector(getFilteredContacts);
@@ -33,7 +41,7 @@ export const App = () => {
   // }, [dispatch]);
 
   return (
-    <div
+    <Provider
       store={store}
       style={{
         height: '100vh',
@@ -45,17 +53,19 @@ export const App = () => {
         color: '#010101',
       }}
     >
-      <BrowserRouter>
-        <Navigation />
-        <Suspense>
-          <Routes>
-            <Route path="/" element={<Phonebook />} />
-            <Route path="/register" element={<RegisterPage />} />
-            <Route path="/login" element={<LoginPage />} />
-          </Routes>
-        </Suspense>
-      </BrowserRouter>
-    </div>
+      <PersistGate loading={null} persistor={persistor}>
+        <BrowserRouter>
+          <Navigation />
+          <Suspense>
+            <Routes>
+              <Route path="/" element={<Phonebook />} />
+              <Route path="/register" element={<RegisterPage />} />
+              <Route path="/login" element={<LoginPage />} />
+            </Routes>
+          </Suspense>
+        </BrowserRouter>
+      </PersistGate>
+    </Provider>
   );
 };
 
