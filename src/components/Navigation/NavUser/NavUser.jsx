@@ -9,6 +9,7 @@ export const NavUser = () => {
         Register
       </NavLink>
       <span className={css.decoration_elem}>|</span> */}
+      <p>mango@mail.com</p>
       <button>Logout</button>
       {/* <NavLink to="/contacts">Contacts</NavLink> */}
     </div>

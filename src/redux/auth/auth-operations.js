@@ -6,8 +6,12 @@ export const signup = createAsyncThunk(
   'auth/signup',
   async (data, { rejectWithValue }) => {
     try {
-      const { data: result } = await api.signup(data);
-      // console.log(result);
+      const result = await api.signup(data);
+
+      // {
+      //   data: result;
+      // }
+      console.log(result);
       return result;
     } catch ({ response }) {
       return rejectWithValue(response.data);
@@ -19,14 +23,17 @@ export const login = createAsyncThunk(
   'auth/login',
   async (data, { rejectWithValue }) => {
     try {
-      const { data: result } = await api.login(data);
-      // console.log(result);
+      const result = await api.login(data);
+      console.log(result);
+
       return result;
     } catch ({ response }) {
       return rejectWithValue(response.data);
     }
   }
 );
+
+// { data: result }
 
 // export const fetchAddContact = createAsyncThunk(
 //   'contacts/add',

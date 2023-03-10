@@ -27,14 +27,14 @@ export const Form = () => {
     event.preventDefault();
 
     setState({ ...inititalState });
-    console.log({ name, phone });
+    console.log({ name, number });
     if (isDublicate(name)) {
       alert(`${name} is alredy in contacts!`);
-      setState({ name, phone });
+      setState({ name, number });
       return false;
     }
 
-    dispatch(fetchAddContact({ name, phone }));
+    dispatch(fetchAddContact({ name, number }));
 
     // reset();
   };
@@ -55,7 +55,7 @@ export const Form = () => {
     return Boolean(result);
   };
 
-  const { name, phone } = state;
+  const { name, number } = state;
 
   return (
     <div>
@@ -78,8 +78,8 @@ export const Form = () => {
           <input
             className={css.form_input}
             type="tel"
-            name="phone"
-            value={phone}
+            name="number"
+            value={number}
             onChange={handleChange}
             pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
             title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
