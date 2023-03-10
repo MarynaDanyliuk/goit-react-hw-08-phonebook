@@ -45,31 +45,31 @@ const authSlice = createSlice({
         store.loading = false;
         store.error = payload;
       })
-      .addCase(current.pending, state => {
-        state.loading = true;
-        state.error = null;
+      .addCase(current.pending, store => {
+        store.loading = true;
+        store.error = null;
       })
-      .addCase(current.fulfilled, (state, { payload }) => {
+      .addCase(current.fulfilled, (store, { payload }) => {
         const { user, token } = payload;
-        state.loading = false;
-        state.user = user;
-        state.token = token;
-        state.isLogin = true;
+        store.loading = false;
+        store.user = user;
+        store.token = token;
+        store.isLogin = true;
       })
-      .addCase(current.rejected, (state, { payload }) => {
-        state.loading = false;
-        state.token = '';
-        state.error = payload;
+      .addCase(current.rejected, (store, { payload }) => {
+        store.loading = false;
+        store.token = '';
+        store.error = payload;
       })
-      .addCase(logout.pending, state => {
-        state.loading = true;
-        state.error = null;
+      .addCase(logout.pending, store => {
+        store.loading = true;
+        store.error = null;
       })
-      .addCase(logout.fulfilled, state => {
-        state.loading = false;
-        state.user = {};
-        state.token = '';
-        state.isLogin = false;
+      .addCase(logout.fulfilled, store => {
+        store.loading = false;
+        store.user = {};
+        store.token = '';
+        store.isLogin = false;
       })
       .addCase(logout.rejected, (state, { payload }) => {
         state.loading = false;

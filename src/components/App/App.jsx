@@ -1,22 +1,34 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import { Provider } from 'react-redux';
-import { PersistGate } from 'redux-persist/integration/react';
 // import { Provider } from 'react-redux';
-import React, { Suspense } from 'react';
+// import { PersistGate } from 'redux-persist/integration/react';
+// import { useDispatch } from 'react-redux';
 
-import { store, persistor } from 'redux/store';
+import React, { lazy, Suspense } from 'react';
+
+// import { store, persistor } from 'redux/store';
+// import { current } from '../../redux/auth/auth-operations';
 // import { useEffect } from 'react';
 // import { useSelector } from 'react-redux';
 
 // import { ContactsList } from 'components/ContactsList/ContactsList';
 // import { Form } from 'components/Form/Form';
 // import { Filter } from 'components/Filter/Filter';
+import { AuthProvider } from '../AuthProvider/AuthProvider';
 import { Navigation } from 'components/Navigation/Navigation';
 import { Phonebook } from 'components/Phonebook/Phonebook';
 
-import RegisterPage from 'components/pages/RegisterPage/RegisterPage';
-import LoginPage from 'components/pages/LoginPage/LoginPage';
+import PublicRoute from '../PublicRoute/PublicRoute';
+import PrivateRoute from '../PrivateRoute/PrivateRote';
 
+// import RegisterPage from 'components/pages/RegisterPage/RegisterPage';
+// import LoginPage from 'components/pages/LoginPage/LoginPage';
+
+const HomePage = lazy(() => import('../pages/HomePage/HomePage'));
+const RegisterPage = lazy(() => import('../pages/RegisterPage/RegisterPage'));
+const LoginPage = lazy(() => import('../pages/LoginPage/LoginPage'));
+const NotFoundPage = lazy(() => import('../pages/NotFoundPage/NotFoundPage'));
+
+// import { current } from '../../redux/auth/auth-operations';
 // import { getFilteredContacts } from '../../redux/contacts/contacts-selectors';
 
 // import { useDispatch } from 'react-redux';
@@ -37,35 +49,28 @@ export const App = () => {
   // const dispatch = useDispatch();
 
   // useEffect(() => {
-  //   dispatch(fetchAllContacts());
+  //   dispatch(current());
   // }, [dispatch]);
 
   return (
-    <Provider
-      store={store}
-      style={{
-        height: '100vh',
-        display: 'flex',
-        flexDirection: `column`,
-        marginLeft: 40,
-        marginRight: 40,
-        fontSize: 20,
-        color: '#010101',
-      }}
-    >
-      <PersistGate loading={null} persistor={persistor}>
-        <BrowserRouter>
-          <Navigation />
-          <Suspense>
-            <Routes>
-              <Route path="/" element={<Phonebook />} />
+    <AuthProvider>
+      <BrowserRouter>
+        <Navigation />
+        <Suspense>
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route element={<PublicRoute />}>
               <Route path="/register" element={<RegisterPage />} />
               <Route path="/login" element={<LoginPage />} />
-            </Routes>
-          </Suspense>
-        </BrowserRouter>
-      </PersistGate>
-    </Provider>
+            </Route>
+            <Route element={<PrivateRoute />}>
+              <Route path="/contacts" element={<Phonebook />} />
+            </Route>
+            <Route path="*" element={<NotFoundPage />} />
+          </Routes>
+        </Suspense>
+      </BrowserRouter>
+    </AuthProvider>
   );
 };
 

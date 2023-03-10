@@ -13,9 +13,6 @@ export const getAllContacts = async () => {
 };
 
 export const addContact = async data => {
-  // const responce = await authInstance.post('/contacts', data);
-  // console.log(responce.data);
-  // return responce.data;
   const { data: result } = await authInstance.post('/contacts', data);
   return result;
 };

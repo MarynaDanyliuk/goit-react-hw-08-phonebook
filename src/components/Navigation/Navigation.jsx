@@ -4,7 +4,6 @@ import { useSelector } from 'react-redux';
 
 import { isUserLogin } from '../../redux/auth/auth-selectors';
 
-// import { UserMenu } from '../UserMenu';
 import { NavAuth } from 'components/Navigation/NavAuth/NavAuth';
 import { NavUser } from 'components/Navigation/NavUser/NavUser';
 
