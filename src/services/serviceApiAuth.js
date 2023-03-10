@@ -29,4 +29,21 @@ export const login = async data => {
   return result;
 };
 
+export const getCurrent = async token => {
+  try {
+    setToken(token);
+    const { data } = await authInstance.get('/users/current');
+    return data;
+  } catch (error) {
+    setToken();
+    throw error;
+  }
+};
+
+export const logout = async () => {
+  const { data } = await authInstance.post('/users/logout');
+  setToken();
+  return data;
+};
+
 export default authInstance;
