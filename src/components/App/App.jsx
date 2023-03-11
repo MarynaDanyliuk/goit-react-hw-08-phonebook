@@ -54,7 +54,7 @@ export const App = () => {
 
   return (
     <AuthProvider>
-      <BrowserRouter>
+      <BrowserRouter basename="/goit-react-hw-08-phonebook">
         <Navigation />
         <Suspense>
           <Routes>
