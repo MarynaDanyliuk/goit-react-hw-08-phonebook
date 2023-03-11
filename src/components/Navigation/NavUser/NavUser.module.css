@@ -24,3 +24,7 @@
 .button:hover {
   background-color: #8dd5ee;
 }
+
+.user_email {
+  font-size: medium;
+}

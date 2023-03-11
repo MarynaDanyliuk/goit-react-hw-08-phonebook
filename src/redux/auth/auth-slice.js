@@ -7,6 +7,7 @@ const initialState = {
   token: '',
   isLogin: false,
   loading: false,
+  isRefreshing: false,
   error: null,
 };
 
@@ -46,6 +47,7 @@ const authSlice = createSlice({
         store.error = payload;
       })
       .addCase(current.pending, store => {
+        store.isRefreshing = true;
         store.loading = true;
         store.error = null;
       })
@@ -53,13 +55,14 @@ const authSlice = createSlice({
         // const { user, token } = payload;
         store.loading = false;
         store.user = payload;
-        // store.token = token;
         store.isLogin = true;
+        store.isRefreshing = false;
       })
       .addCase(current.rejected, (store, { payload }) => {
         store.loading = false;
         store.token = '';
         store.error = payload;
+        store.isRefreshing = false;
       })
       .addCase(logout.pending, store => {
         store.loading = true;

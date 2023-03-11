@@ -6,4 +6,6 @@ export const getAuth = ({ auth }) => {
 };
 export const getUser = ({ auth }) => auth.user;
 
+export const selectIsRefreshing = ({ auth }) => auth.selectIsRefreshing;
+
 // console.log(isUserLogin);

@@ -15,7 +15,7 @@ export const NavUser = () => {
   };
   return (
     <div className={css.navigation}>
-      <p>{email}</p>
+      <p className={css.user_email}>{email}</p>
       <button className={css.button} onClick={onLogout}>
         Logout
       </button>
