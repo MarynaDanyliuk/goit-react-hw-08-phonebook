@@ -12,7 +12,6 @@ export const NavAuth = () => {
       <NavLink to="/login" className={css.link}>
         Login
       </NavLink>
-      {/* <NavLink to="/contacts">Contacts</NavLink> */}
     </div>
   );
 };

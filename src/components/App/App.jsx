@@ -7,8 +7,11 @@ import React, { lazy, Suspense } from 'react';
 
 // import { store, persistor } from 'redux/store';
 // import { current } from '../../redux/auth/auth-operations';
-// import { useEffect } from 'react';
+import { useEffect } from 'react';
+
+import { useDispatch } from 'react-redux';
 // import { useSelector } from 'react-redux';
+import { current } from '../../redux/auth/auth-operations';
 
 // import { ContactsList } from 'components/ContactsList/ContactsList';
 // import { Form } from 'components/Form/Form';
@@ -28,10 +31,7 @@ const RegisterPage = lazy(() => import('../pages/RegisterPage/RegisterPage'));
 const LoginPage = lazy(() => import('../pages/LoginPage/LoginPage'));
 const NotFoundPage = lazy(() => import('../pages/NotFoundPage/NotFoundPage'));
 
-// import { current } from '../../redux/auth/auth-operations';
 // import { getFilteredContacts } from '../../redux/contacts/contacts-selectors';
-
-// import { useDispatch } from 'react-redux';
 
 // import { fetchAllContacts } from 'redux/contacts/contacts-operations';
 
@@ -46,11 +46,11 @@ export const App = () => {
 
   // const isContacts = Boolean(filteredContacts.length);
 
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
-  // useEffect(() => {
-  //   dispatch(current());
-  // }, [dispatch]);
+  useEffect(() => {
+    dispatch(current());
+  }, [dispatch]);
 
   return (
     <AuthProvider>
