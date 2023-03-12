@@ -1,4 +1,4 @@
-// const { default: inititalState } = require('components/Form/initialState');
+// // const { default: inititalState } = require('components/Form/initialState');
 
 // const initialState = {
 //   name: '',

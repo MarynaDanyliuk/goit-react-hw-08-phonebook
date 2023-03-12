@@ -8,7 +8,7 @@ import authInstance from './serviceApiAuth';
 
 export const getAllContacts = async () => {
   const { data } = await authInstance.get('/contacts');
-  console.log(data);
+  // console.log(data);
   return data;
 };
 
@@ -19,6 +19,6 @@ export const addContact = async data => {
 
 export const deleteContact = async id => {
   const { data } = await authInstance.delete(`/contacts/${id}`);
-  console.log(data);
+  // console.log(data);
   return data;
 };

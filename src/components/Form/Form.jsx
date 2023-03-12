@@ -1,18 +1,17 @@
 import React from 'react';
-import { useState } from 'react';
 import css from './Form.module.css';
+
+import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import inititalState from 'components/Form/initialState';
 
 import { getAllContacts } from 'redux/contacts/contacts-selectors';
-
 import { fetchAddContact } from 'redux/contacts/contacts-operations';
 
 export const Form = () => {
   const [state, setState] = useState({ ...inititalState });
   const allContacts = useSelector(getAllContacts);
-  console.log(allContacts);
 
   const dispatch = useDispatch();
 
