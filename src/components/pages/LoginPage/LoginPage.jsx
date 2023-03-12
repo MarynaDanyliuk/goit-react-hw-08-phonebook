@@ -35,6 +35,8 @@ const LoginPage = () => {
     }
   };
 
+  console.log(state);
+
   if (isLogin) {
     return <Navigate to="/" />;
   }
