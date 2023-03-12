@@ -14,6 +14,7 @@ export const signup = createAsyncThunk(
       console.log(result);
       return result;
     } catch ({ response }) {
+      alert('User is register yet');
       return rejectWithValue(response.data);
     }
   }
@@ -27,6 +28,7 @@ export const login = createAsyncThunk(
       console.log(result);
       return result;
     } catch ({ response }) {
+      alert('User is not register');
       return rejectWithValue(response.data);
     }
   }
